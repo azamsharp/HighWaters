@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,104 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HighWaters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ajK-BH-aor">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf4-5K-1F0">
+                                <rect key="frame" x="0.0" y="624" width="375" height="43"/>
+                                <color key="backgroundColor" red="0.39778369665145874" green="0.78838235139846802" blue="0.47845175862312317" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="uhY-C9-OJy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <state key="normal" title="MARK AS FLOODED"/>
+                                <connections>
+                                    <action selector="markAsFloodedButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="pzb-um-VoT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lf4-5K-1F0" secondAttribute="bottom" id="07i-X9-Bld"/>
+                            <constraint firstItem="Lf4-5K-1F0" firstAttribute="centerX" secondItem="ajK-BH-aor" secondAttribute="centerX" id="0EZ-uN-meS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lf4-5K-1F0" secondAttribute="trailing" id="Fbt-gO-JTf"/>
+                            <constraint firstItem="Lf4-5K-1F0" firstAttribute="top" secondItem="ajK-BH-aor" secondAttribute="bottom" id="Gdf-2F-4ym"/>
+                            <constraint firstItem="ajK-BH-aor" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ldm-K0-Mtd"/>
+                            <constraint firstItem="ajK-BH-aor" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bFL-0t-E2Q"/>
+                            <constraint firstItem="ajK-BH-aor" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="clX-py-Nca"/>
+                            <constraint firstAttribute="trailing" secondItem="ajK-BH-aor" secondAttribute="trailing" id="gAY-no-oZy"/>
+                            <constraint firstItem="ajK-BH-aor" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jqY-uE-ctJ"/>
+                            <constraint firstItem="ajK-BH-aor" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rQ3-8m-bvd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="floodCalloutView" destination="sN0-3Y-ykA" id="uGK-03-GG4"/>
+                        <outlet property="mapView" destination="ajK-BH-aor" id="eRC-9B-8Jb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="sN0-3Y-ykA" customClass="FloodCalloutView" customModule="HighWaters" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EZ9-5i-bxI">
+                            <rect key="frame" x="60" y="80.5" width="121" height="29"/>
+                            <segments>
+                                <segment title="Yes"/>
+                                <segment title="No"/>
+                            </segments>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </segmentedControl>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjN-Um-rmk">
+                            <rect key="frame" x="16" y="27" width="208" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="LFf-38-pEm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is it still flooded?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrq-k5-pmP">
+                            <rect key="frame" x="16" y="55.5" width="208" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reported On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed4-p9-xiO">
+                            <rect key="frame" x="84" y="10" width="72" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="EZ9-5i-bxI" firstAttribute="leading" secondItem="xtX-QX-5sW" secondAttribute="leading" constant="60" id="3Og-zF-s3u"/>
+                        <constraint firstItem="Ed4-p9-xiO" firstAttribute="centerX" secondItem="sN0-3Y-ykA" secondAttribute="centerX" id="9Rn-xe-02H"/>
+                        <constraint firstItem="Ed4-p9-xiO" firstAttribute="top" secondItem="xtX-QX-5sW" secondAttribute="top" constant="10" id="Elb-wL-jse"/>
+                        <constraint firstItem="KjN-Um-rmk" firstAttribute="top" secondItem="Ed4-p9-xiO" secondAttribute="bottom" constant="2" id="GJU-hC-H8P"/>
+                        <constraint firstItem="mrq-k5-pmP" firstAttribute="leading" secondItem="KjN-Um-rmk" secondAttribute="leading" id="IS4-nY-tVm"/>
+                        <constraint firstItem="Ed4-p9-xiO" firstAttribute="centerX" secondItem="KjN-Um-rmk" secondAttribute="centerX" id="Mxf-Gn-Bez"/>
+                        <constraint firstItem="KjN-Um-rmk" firstAttribute="leading" secondItem="sN0-3Y-ykA" secondAttribute="leadingMargin" id="RoC-LF-Ds2"/>
+                        <constraint firstItem="EZ9-5i-bxI" firstAttribute="centerX" secondItem="mrq-k5-pmP" secondAttribute="centerX" id="ZOa-Jf-kRp"/>
+                        <constraint firstItem="mrq-k5-pmP" firstAttribute="centerY" secondItem="sN0-3Y-ykA" secondAttribute="centerY" id="bIG-pD-4NM"/>
+                        <constraint firstItem="mrq-k5-pmP" firstAttribute="trailing" secondItem="KjN-Um-rmk" secondAttribute="trailing" id="rs7-jw-Ddq"/>
+                        <constraint firstItem="EZ9-5i-bxI" firstAttribute="top" secondItem="mrq-k5-pmP" secondAttribute="bottom" constant="8" symbolic="YES" id="ssa-pA-9YA"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="xtX-QX-5sW"/>
+                    <connections>
+                        <outlet property="reportAtLabel" destination="KjN-Um-rmk" id="ZAT-8q-YRv"/>
+                    </connections>
+                </view>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
