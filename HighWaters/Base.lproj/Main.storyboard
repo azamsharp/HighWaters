@@ -21,11 +21,11 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ajK-BH-aor">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf4-5K-1F0">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf4-5K-1F0">
                                 <rect key="frame" x="0.0" y="624" width="375" height="43"/>
                                 <color key="backgroundColor" red="0.39778369665145874" green="0.78838235139846802" blue="0.47845175862312317" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="uhY-C9-OJy"/>
+                                    <constraint firstAttribute="height" constant="43" id="e7O-RZ-k4m"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -37,12 +37,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lf4-5K-1F0" secondAttribute="bottom" id="07i-X9-Bld"/>
                             <constraint firstItem="Lf4-5K-1F0" firstAttribute="centerX" secondItem="ajK-BH-aor" secondAttribute="centerX" id="0EZ-uN-meS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lf4-5K-1F0" secondAttribute="trailing" id="Fbt-gO-JTf"/>
                             <constraint firstItem="Lf4-5K-1F0" firstAttribute="top" secondItem="ajK-BH-aor" secondAttribute="bottom" id="Gdf-2F-4ym"/>
                             <constraint firstItem="ajK-BH-aor" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ldm-K0-Mtd"/>
                             <constraint firstItem="ajK-BH-aor" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bFL-0t-E2Q"/>
+                            <constraint firstItem="Lf4-5K-1F0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cLn-0r-gu1"/>
                             <constraint firstItem="ajK-BH-aor" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="clX-py-Nca"/>
                             <constraint firstAttribute="trailing" secondItem="ajK-BH-aor" secondAttribute="trailing" id="gAY-no-oZy"/>
                             <constraint firstItem="ajK-BH-aor" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jqY-uE-ctJ"/>
@@ -53,6 +53,8 @@
                     <connections>
                         <outlet property="floodCalloutView" destination="sN0-3Y-ykA" id="uGK-03-GG4"/>
                         <outlet property="mapView" destination="ajK-BH-aor" id="eRC-9B-8Jb"/>
+                        <outlet property="markAsFloodedButton" destination="Lf4-5K-1F0" id="gxK-4t-fxS"/>
+                        <outlet property="markAsFloodedButtonHeightConstraint" destination="e7O-RZ-k4m" id="hQ6-m1-pYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

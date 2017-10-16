@@ -15,6 +15,10 @@ import FirebaseDatabase
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var mapView :MKMapView!
+    @IBOutlet weak var markAsFloodedButton :UIButton!
+    
+    @IBOutlet weak var markAsFloodedButtonHeightConstraint :NSLayoutConstraint!
+    
     lazy var locationManager = CLLocationManager()
     var floodedLocationsRef :DatabaseReference!
     var floodedLocations :[Flood] = [Flood]()
@@ -129,10 +133,61 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         self.mapView.addAnnotation(annotation)
         
         let floodRef = self.floodedLocationsRef.childByAutoId()
-        floodRef.setValue(flood.toDictionary())
+       // floodRef.setValue(flood.toDictionary())
+        
+        hideMarkAsFloodedButtonFor30Seconds()
+    }
+    
+    private func hideMarkAsFloodedButtonFor30Seconds() {
+        
+        self.markAsFloodedButton.clipsToBounds = true
+        self.markAsFloodedButton.setTitle("", for: .normal)
+        
+        // remove the progressView
+        
+        let progressView = UIView(frame: CGRect(x: 0, y: self.view.frame.size.height - 5, width: 0, height: 5))
+        progressView.backgroundColor = self.markAsFloodedButton.backgroundColor
+        self.view.addSubview(progressView)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            self.markAsFloodedButtonHeightConstraint.constant = 5
+            self.markAsFloodedButton.backgroundColor = UIColor(fromHexString: "e74c3c")
+            self.markAsFloodedButton.layoutIfNeeded()
+            
+        }) { (_) in
+            
+            UIView.animate(withDuration: 3.0, animations: {
+                
+                progressView.frame.size = CGSize(width: self.markAsFloodedButton.frame.width, height: 5)
+                progressView.layoutIfNeeded()
+                
+            }, completion: { (_) in
+                
+                progressView.removeFromSuperview()
+                self.markAsFloodedButton.backgroundColor = UIColor(fromHexString: "2ecc71")
+                
+                UIView.animate(withDuration: 10.0, animations: {
+                    
+                    self.markAsFloodedButton.setTitle("MARK AS FLOODED", for: .normal)
+                    self.markAsFloodedButtonHeightConstraint.constant = 43
+                   // self.markAsFloodedButton.layoutIfNeeded()
+                    
+                })
+                
+            })
+        }
+        
         
     }
-
-
+    
+    
 }
+
+
+
+
+
+
+
 
