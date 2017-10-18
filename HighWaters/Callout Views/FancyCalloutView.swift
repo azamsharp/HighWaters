@@ -10,8 +10,9 @@ import UIKit
 
 class FancyCalloutView: UIView {
     
-    @IBOutlet weak var reportedAt :UILabel!
-    @IBOutlet weak var contentView :UIView! 
+  
+    @IBOutlet var contentView: UIView!
+    @IBOutlet var reportedAtLabel: UILabel!
     
     var flood :Flood!
     
@@ -25,8 +26,7 @@ class FancyCalloutView: UIView {
     
     private func initializeUI() {
         
-        self.reportedAt.text = self.flood.reportedAt
-        
+        self.reportedAtLabel.text = self.flood.reportedAt
     }
     
     override init(frame: CGRect) {
@@ -42,6 +42,7 @@ class FancyCalloutView: UIView {
     private func commonInit() {
         
         self.contentView = Bundle.main.loadNibNamed("FancyCalloutView", owner: self, options: nil)?.last as! UIView
+        self.contentView.frame = self.bounds 
         self.addSubview(contentView)
     }
    

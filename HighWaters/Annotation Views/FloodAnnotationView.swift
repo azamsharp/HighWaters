@@ -21,7 +21,6 @@ class FloodAnnotationView : MKAnnotationView {
         self.frame = frame
         
         self.backgroundColor = UIColor.clear
-       // self.centerOffset = CGPoint(x: -15, y: -5)
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
