@@ -13,6 +13,11 @@
 		340517111F8DCE7B00273D02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 340517101F8DCE7B00273D02 /* Assets.xcassets */; };
 		340517141F8DCE7B00273D02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340517121F8DCE7B00273D02 /* LaunchScreen.storyboard */; };
 		3405171C1F8DD66B00273D02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3405171B1F8DD66700273D02 /* GoogleService-Info.plist */; };
+		3418E1251F9661EB00674032 /* HWService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3418E1241F9661EB00674032 /* HWService.swift */; };
+		3418E1271F967BF700674032 /* ViewController+MapViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3418E1261F967BF700674032 /* ViewController+MapViewDelegates.swift */; };
+		3418E1291F96816D00674032 /* callout.png in Resources */ = {isa = PBXBuildFile; fileRef = 3418E1281F96816A00674032 /* callout.png */; };
+		3418E12D1F968FDC00674032 /* FancyCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3418E12C1F968FDC00674032 /* FancyCalloutView.swift */; };
+		3418E12F1F968FF300674032 /* FancyCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3418E12E1F968FF300674032 /* FancyCalloutView.xib */; };
 		349AA0E51F90375D00063982 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA0E41F90375D00063982 /* Extensions.swift */; };
 		349AA0E71F90388F00063982 /* FloodAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA0E61F90388F00063982 /* FloodAnnotationView.swift */; };
 		349AA0E91F9038C100063982 /* FloodAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA0E81F9038C100063982 /* FloodAnnotation.swift */; };
@@ -36,6 +41,11 @@
 		340517131F8DCE7B00273D02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		340517151F8DCE7B00273D02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3405171B1F8DD66700273D02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3418E1241F9661EB00674032 /* HWService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWService.swift; sourceTree = "<group>"; };
+		3418E1261F967BF700674032 /* ViewController+MapViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+MapViewDelegates.swift"; sourceTree = "<group>"; };
+		3418E1281F96816A00674032 /* callout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callout.png; sourceTree = "<group>"; };
+		3418E12C1F968FDC00674032 /* FancyCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyCalloutView.swift; sourceTree = "<group>"; };
+		3418E12E1F968FF300674032 /* FancyCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyCalloutView.xib; sourceTree = "<group>"; };
 		349AA0E41F90375D00063982 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		349AA0E61F90388F00063982 /* FloodAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloodAnnotationView.swift; sourceTree = "<group>"; };
 		349AA0E81F9038C100063982 /* FloodAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloodAnnotation.swift; sourceTree = "<group>"; };
@@ -85,27 +95,96 @@
 		340517081F8DCE7B00273D02 /* HighWaters */ = {
 			isa = PBXGroup;
 			children = (
+				3418E1231F9661DC00674032 /* Services */,
+				3418E1201F964DA000674032 /* Extensions */,
+				3418E11F1F964D8F00674032 /* Images */,
+				3418E11E1F964D8300674032 /* Classes */,
+				3418E11D1F964D7100674032 /* Callout Views */,
+				3418E11C1F964D6500674032 /* Annotation Views */,
+				3418E11B1F964D5A00674032 /* Annotations */,
+				3418E11A1F964D4800674032 /* Controllers */,
 				340517091F8DCE7B00273D02 /* AppDelegate.swift */,
-				3405170B1F8DCE7B00273D02 /* ViewController.swift */,
 				3405170D1F8DCE7B00273D02 /* Main.storyboard */,
 				340517101F8DCE7B00273D02 /* Assets.xcassets */,
 				340517121F8DCE7B00273D02 /* LaunchScreen.storyboard */,
 				3405171B1F8DD66700273D02 /* GoogleService-Info.plist */,
 				340517151F8DCE7B00273D02 /* Info.plist */,
+				349AA0F41F9075C500063982 /* HighWaters-Bridging-Header.h */,
+			);
+			path = HighWaters;
+			sourceTree = "<group>";
+		};
+		3418E11A1F964D4800674032 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3405170B1F8DCE7B00273D02 /* ViewController.swift */,
+				3418E1261F967BF700674032 /* ViewController+MapViewDelegates.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3418E11B1F964D5A00674032 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				349AA0E81F9038C100063982 /* FloodAnnotation.swift */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
+		3418E11C1F964D6500674032 /* Annotation Views */ = {
+			isa = PBXGroup;
+			children = (
+				349AA0E61F90388F00063982 /* FloodAnnotationView.swift */,
+			);
+			path = "Annotation Views";
+			sourceTree = "<group>";
+		};
+		3418E11D1F964D7100674032 /* Callout Views */ = {
+			isa = PBXGroup;
+			children = (
+				349AA0F21F906DA900063982 /* FloodCalloutView.swift */,
+				3418E12C1F968FDC00674032 /* FancyCalloutView.swift */,
+				3418E12E1F968FF300674032 /* FancyCalloutView.xib */,
+			);
+			path = "Callout Views";
+			sourceTree = "<group>";
+		};
+		3418E11E1F964D8300674032 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
 				34C30EF91F8F0ECC004ED3F8 /* Flood.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3418E11F1F964D8F00674032 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3418E1281F96816A00674032 /* callout.png */,
 				349AA0F01F90677F00063982 /* flooded-icon.png */,
 				349AA0EA1F903C9D00063982 /* pin.png */,
 				349AA0EB1F903C9D00063982 /* pin@2x.png */,
 				349AA0EC1F903C9D00063982 /* pin@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		3418E1201F964DA000674032 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
 				349AA0E41F90375D00063982 /* Extensions.swift */,
 				349AA0F61F9075C600063982 /* UIColor+Additions.h */,
 				349AA0F51F9075C500063982 /* UIColor+Additions.m */,
-				349AA0E61F90388F00063982 /* FloodAnnotationView.swift */,
-				349AA0E81F9038C100063982 /* FloodAnnotation.swift */,
-				349AA0F21F906DA900063982 /* FloodCalloutView.swift */,
-				349AA0F41F9075C500063982 /* HighWaters-Bridging-Header.h */,
 			);
-			path = HighWaters;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3418E1231F9661DC00674032 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3418E1241F9661EB00674032 /* HWService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		7086A1310A57942829B66062 /* Pods */ = {
@@ -188,6 +267,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3418E12F1F968FF300674032 /* FancyCalloutView.xib in Resources */,
+				3418E1291F96816D00674032 /* callout.png in Resources */,
 				340517141F8DCE7B00273D02 /* LaunchScreen.storyboard in Resources */,
 				3405171C1F8DD66B00273D02 /* GoogleService-Info.plist in Resources */,
 				349AA0EF1F903CA600063982 /* pin@3x.png in Resources */,
@@ -257,10 +338,13 @@
 				34C30EFA1F8F0ECC004ED3F8 /* Flood.swift in Sources */,
 				349AA0E71F90388F00063982 /* FloodAnnotationView.swift in Sources */,
 				3405170C1F8DCE7B00273D02 /* ViewController.swift in Sources */,
+				3418E12D1F968FDC00674032 /* FancyCalloutView.swift in Sources */,
+				3418E1271F967BF700674032 /* ViewController+MapViewDelegates.swift in Sources */,
 				3405170A1F8DCE7B00273D02 /* AppDelegate.swift in Sources */,
 				349AA0F31F906DA900063982 /* FloodCalloutView.swift in Sources */,
 				349AA0F71F9075C600063982 /* UIColor+Additions.m in Sources */,
 				349AA0E51F90375D00063982 /* Extensions.swift in Sources */,
+				3418E1251F9661EB00674032 /* HWService.swift in Sources */,
 				349AA0E91F9038C100063982 /* FloodAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

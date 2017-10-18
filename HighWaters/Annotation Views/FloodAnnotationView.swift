@@ -21,15 +21,7 @@ class FloodAnnotationView : MKAnnotationView {
         self.frame = frame
         
         self.backgroundColor = UIColor.clear
-        self.centerOffset = CGPoint(x: -5, y: -5)
-        self.canShowCallout = false
-        
-        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        let leftImageView = UIImageView(image: UIImage(named: "flooded-icon")!)
-        leftImageView.contentMode = .scaleAspectFit
-        
-        leftView.addSubview(leftImageView)
-        self.leftCalloutAccessoryView = leftView
+       // self.centerOffset = CGPoint(x: -15, y: -5)
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
