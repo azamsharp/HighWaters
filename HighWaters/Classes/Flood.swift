@@ -15,19 +15,20 @@ class Flood {
     
     var coordinate :CLLocationCoordinate2D
     var reportedAt :String
-    var yesCount :Int? = 0
+    var yesCount :Int = 0
     var ref :DatabaseReference!
     
     func toDictionary() -> [String:Any] {
         
         return ["latitude":self.coordinate.latitude,"longitude":self.coordinate.longitude,
-                "reportedAt":self.reportedAt, "yesCount": self.yesCount!
+                "reportedAt":self.reportedAt, "yesCount": self.yesCount
         ]
     }
     
     init(coordinate :CLLocationCoordinate2D, reportedAt :String) {
         self.coordinate = coordinate
         self.reportedAt = reportedAt
+        self.yesCount += 1
     }
     
     init?(snapshot :DataSnapshot) {
@@ -44,6 +45,7 @@ class Flood {
                 return nil
         }
         
+        self.ref = snapshot.ref
         self.reportedAt = reportedAt
         self.yesCount = yesCount
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)

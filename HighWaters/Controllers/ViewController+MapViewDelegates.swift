@@ -55,10 +55,15 @@ extension ViewController {
             return
         }
         
-        let fancyCalloutView = FancyCalloutView(frame: CGRect(x:-240/2,y:-187,width:244,height:187), flood: annotation.flood)
+        let fancyCalloutView = FancyCalloutView(frame: CGRect(x:-244/2 + 15,y:-180,width:244,height:187), flood: annotation.flood)
+        fancyCalloutView.delegate = self
         
-        view.addSubview(fancyCalloutView)
-}
+         view.addSubview(fancyCalloutView)
+    }
     
 }
+
+
+
+
 

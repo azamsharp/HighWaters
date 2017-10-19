@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol FancyCalloutViewDelegate : class {
+    
+    func fancyCalloutViewDidSelectedYesNoOption(flood :Flood, isYes :Bool, calloutView :FancyCalloutView)
+}
+
 class FancyCalloutView: UIView {
     
-  
     @IBOutlet var contentView: UIView!
     @IBOutlet var reportedAtLabel: UILabel!
+    @IBOutlet var yesCountLabel :UILabel!
+    @IBOutlet var yesNoSegmentedControl :UISegmentedControl!
+    
+    weak var delegate :FancyCalloutViewDelegate!
     
     var flood :Flood!
     
@@ -26,7 +34,32 @@ class FancyCalloutView: UIView {
     
     private func initializeUI() {
         
-        self.reportedAtLabel.text = self.flood.reportedAt
+        self.flood.ref.observe(.value) { snapshot in
+            
+            let changedValues = snapshot.value as! [String:Any]
+            
+            guard let reportedAt = changedValues["reportedAt"] as? String,
+                let yesCount = changedValues["yesCount"] as? Int else {
+                    return
+            }
+            
+            
+            self.reportedAtLabel.text = reportedAt
+            self.yesCountLabel.text = "\(yesCount)"
+            
+            print(changedValues)
+        }
+        
+       
+        self.yesNoSegmentedControl.addTarget(self, action: #selector(yesNoSegmentedControlValueChanged), for: .valueChanged)
+    }
+    
+    @objc func yesNoSegmentedControlValueChanged(segmentedControl :UISegmentedControl) {
+        
+        let selectedTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
+        
+        self.delegate.fancyCalloutViewDidSelectedYesNoOption(flood: self.flood, isYes: selectedTitle == "Yes" ? true : false, calloutView: self)
+        
     }
     
     override init(frame: CGRect) {

@@ -18,6 +18,7 @@
 		3418E1291F96816D00674032 /* callout.png in Resources */ = {isa = PBXBuildFile; fileRef = 3418E1281F96816A00674032 /* callout.png */; };
 		3418E12D1F968FDC00674032 /* FancyCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3418E12C1F968FDC00674032 /* FancyCalloutView.swift */; };
 		3418E12F1F968FF300674032 /* FancyCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3418E12E1F968FF300674032 /* FancyCalloutView.xib */; };
+		347F0B5D1F991D2600D251F1 /* callout-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 347F0B5C1F991D2300D251F1 /* callout-1.png */; };
 		349AA0E51F90375D00063982 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA0E41F90375D00063982 /* Extensions.swift */; };
 		349AA0E71F90388F00063982 /* FloodAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA0E61F90388F00063982 /* FloodAnnotationView.swift */; };
 		349AA0E91F9038C100063982 /* FloodAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA0E81F9038C100063982 /* FloodAnnotation.swift */; };
@@ -46,6 +47,7 @@
 		3418E1281F96816A00674032 /* callout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callout.png; sourceTree = "<group>"; };
 		3418E12C1F968FDC00674032 /* FancyCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyCalloutView.swift; sourceTree = "<group>"; };
 		3418E12E1F968FF300674032 /* FancyCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyCalloutView.xib; sourceTree = "<group>"; };
+		347F0B5C1F991D2300D251F1 /* callout-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "callout-1.png"; sourceTree = "<group>"; };
 		349AA0E41F90375D00063982 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		349AA0E61F90388F00063982 /* FloodAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloodAnnotationView.swift; sourceTree = "<group>"; };
 		349AA0E81F9038C100063982 /* FloodAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloodAnnotation.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				3418E1281F96816A00674032 /* callout.png */,
+				347F0B5C1F991D2300D251F1 /* callout-1.png */,
 				349AA0F01F90677F00063982 /* flooded-icon.png */,
 				349AA0EA1F903C9D00063982 /* pin.png */,
 				349AA0EB1F903C9D00063982 /* pin@2x.png */,
@@ -272,6 +275,7 @@
 				340517141F8DCE7B00273D02 /* LaunchScreen.storyboard in Resources */,
 				3405171C1F8DD66B00273D02 /* GoogleService-Info.plist in Resources */,
 				349AA0EF1F903CA600063982 /* pin@3x.png in Resources */,
+				347F0B5D1F991D2600D251F1 /* callout-1.png in Resources */,
 				349AA0EE1F903CA300063982 /* pin@2x.png in Resources */,
 				340517111F8DCE7B00273D02 /* Assets.xcassets in Resources */,
 				349AA0ED1F903CA100063982 /* pin.png in Resources */,

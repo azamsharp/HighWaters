@@ -64,10 +64,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         self.mapView.showsUserLocation = true
     }
     
-    @objc func yesNoValueChanged(slider :UISlider) {
-        
-        self.floodCalloutView.setYesCount(count: 23)
-    }
     
     @IBAction func markAsFloodedButtonPressed() {
         
@@ -130,12 +126,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 
             })
         }
-        
-        
     }
-    
-    
 }
+
+
+// FancyCallout Delegates
+extension ViewController : FancyCalloutViewDelegate {
+    
+    func fancyCalloutViewDidSelectedYesNoOption(flood: Flood, isYes: Bool,calloutView :FancyCalloutView) {
+        
+        flood.yesCount += isYes == true ? 1 : -1
+        flood.reportedAt = Date().toString(format: DATE_FORMAT)
+        
+        let floodRef = flood.ref
+        floodRef?.setValue(flood.toDictionary())
+        
+        calloutView.reportedAtLabel.text = flood.reportedAt
+        calloutView.yesCountLabel.text = "\(flood.yesCount)"
+    }
+}
+
+
 
 
 
